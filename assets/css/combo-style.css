@@ -1,0 +1,192 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Hieu ung */
+.image, i {
+    transition: transform 0.3s;
+  }
+
+.scaleImg {
+  transform: scale(1.1);
+}
+
+
+
+.iconAni {
+  transform: scaleX(-1);
+}
+
+/* --------------------------------------------- */
+
+.container {
+    width: 80vw;
+    margin-right: calc(10vw + 12px);
+    margin-left: calc(10vw + 12px);
+}
+
+.container .page-title {
+    color: #111;
+    text-align: left;
+    text-transform: uppercase;
+    
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 38px;
+
+    margin-top: 100px;
+
+}
+
+.container .category-description {
+
+    font-style: italic;
+    font-family: 'Open Sans',arial,sans-serif;
+    color: #777;
+    font-size: 16px;
+    line-height: 26px;
+    margin: 10px 0 5px 0;
+}
+
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -4px;
+    margin-right: -4px;
+}
+
+.wide {
+    width: 80vw;
+}
+
+
+
+.col {
+    margin-bottom: 20px;
+}
+
+.col img {
+    width: 100%;
+    border-radius: 3% 3% 0 0;
+}
+
+.imgBox {
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.goodPrice {
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    padding: 0 15px 0 15px;
+    font-size: 13px;
+    color: #fff;
+    font-weight: 600;
+    line-height: 30px;
+    background-color: rgb(20, 20, 167);
+}
+
+.goodPrice::after {
+    left: calc(100% - 15px);
+    top: 50%;
+    border: solid rgb(20, 20, 167);
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+
+    border-color: rgb(20, 20, 167);
+    border-right-color: transparent;
+    border-width: 15px;
+    margin-top: -15px;
+}
+
+.imgBox .tour-price {
+    text-align: right;
+    position: absolute;
+    top: 8%;
+    right: 0;
+    background-color: rgba(160, 224, 251, 0.8);
+    width: 150px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+} 
+
+.imgBox .tour-price .text {
+    color: #454545;
+    width: 100%;
+    font-size: 11px;
+    line-height: 18px;
+    padding: 0 10px;
+    margin: 0;
+}
+
+.imgBox .tour-price .tourprice {
+    font-family: Verdana,Geneva,sans-serif;
+    color: #a50000;
+    text-align: right;
+    width: 100%;
+    float: left;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 0 10px;
+    margin: 0;
+}
+
+
+.col  h3 a {
+    color: #111;
+    text-decoration: none;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+.col:hover a {
+    color: rgb(28, 54, 217);
+}
+
+.col i {
+    color: rgb(0, 79, 148);
+    font-size: 18px;
+    padding: 0 5px 0 10px;
+}
+
+.col .fp {
+    font-size: 15px;
+    line-height: 26px;
+    color: #898989;
+}
+
+.col .lp {
+    font-size: 15px;
+    line-height: 26px;
+    color: #333;
+    font-weight: 400;
+}
+
+/* >= Tablet */
+@media (min-width: 740px) {
+    .grid {
+        margin-left: -8px;
+        margin-right: -8px;
+    }
+}
+
+
+/* PC medium resolution > */
+@media (min-width: 1113px) {
+    .grid {
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+}

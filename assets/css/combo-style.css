@@ -20,8 +20,8 @@ body {
 
 
 .iconAni {
-  transform: scaleX(-1);
-}
+    transform: translate(-1px, -1px) scale(1.15);
+  }
 
 /* --------------------------------------------- */
 
@@ -158,7 +158,7 @@ body {
 .col i {
     color: rgb(0, 79, 148);
     font-size: 18px;
-    padding: 0 5px 0 10px;
+    padding: 5px 0 0 0;
 }
 
 .col .fp {

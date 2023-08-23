@@ -78,7 +78,7 @@ html {
     top: 0;
     right: 0;
     left: 0;
-    z-index: 1;
+    z-index: 3;
     white-space: nowrap; /*ngăn chữ bị xuống dòng khi phóng to*/
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
 }
@@ -111,6 +111,7 @@ html {
 
 .header-number a {
     padding: 15px 15px 13px 15px;
+    margin-left: 2px;
     background-color: red;
     border-radius: 60%;
 }
@@ -191,6 +192,7 @@ html {
 
 .box {
     padding: 5px 0 15px 0;
+    position: relative;
 }
 
 .search-airline {
@@ -218,6 +220,35 @@ html {
         animation: err .5s 3;
     }
 
+#suggest1,
+#suggest2  {
+    list-style: none;
+    padding: 0;
+    margin-top: -10px;
+    max-height: 100px; /* Giới hạn chiều cao của danh sách */
+    overflow-y: auto; /* Hiển thị thanh cuộn khi nội dung vượt quá chiều cao */
+    position: absolute;
+    top: 100%; /* Hiển thị danh sách gợi ý ngay dưới trường tìm kiếm */
+    width: 100%; /* Đảm bảo rằng danh sách gợi ý chiếm toàn bộ chiều rộng của trường tìm kiếm */    
+    z-index: 2;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,1);
+}
+    
+#suggest1 li,
+#suggest2 li {
+    padding: 8px;
+    cursor: pointer;
+    border: 1px solid #745454;
+}
+    
+#suggest1 li:hover,
+#suggest2 li:hover {
+    background-color: rgb(133, 133, 233);
+    color: #fff;
+}
+    
+
 #content a {
     text-decoration: none;
     font-weight: bold;
@@ -226,7 +257,7 @@ html {
 
 .question-head2 {
     text-align: center;
-    color: yellow;
+    color: rgb(185, 214, 22);
     margin-left: auto;
     margin-right: auto;
 }
@@ -279,7 +310,7 @@ html {
 .voucher-ticket a:hover,
 .combo-ticket a:hover,
 .cheap-ticket a:hover {
-    color: yellow;
+    color: rgb(185, 214, 22);
 }
 
 .work-head2 {
@@ -321,6 +352,14 @@ html {
     width: 100%;
 }
 
+.app img:hover {
+    transform: scale(1.1); 
+}
+
+.app .Qr-code:hover {
+    transform: none;
+}
+
 .Qr-code {
     margin-right: 30px;
 }
@@ -332,6 +371,16 @@ html {
 
 #footer p {
     padding: 10px 0;
+}
+
+.email {
+    color: #101aef;
+    text-decoration: none;
+}
+
+.email:hover {
+    color: rgb(16, 16, 126);
+    text-decoration: underline;
 }
 
 #footer .socials-list {
@@ -437,7 +486,8 @@ html {
     font-size: 30px;
     bottom: 2%;
     right: 2%;
-    z-index: 99;
+    z-index: 3;
+    cursor: pointer;
 }
 
 #chatbox {
@@ -446,14 +496,15 @@ html {
     font-size: 60px;
     bottom: 10%;
     right: 1%;
-    z-index: 99;
+    z-index: 3;
     display: flex;
     align-items: center;
 }
 
 #chatbox-text {
     display: none;
-    color: yellow;
+    color: orange;
+    font-weight: bold;
     margin-right: 10px;
     font-size: 30px;
     animation: jump 1s infinite;
@@ -461,6 +512,10 @@ html {
 
 .fa-brands.fa-facebook-messenger:hover {
     opacity: 0.9;
+}
+
+.chatbox-a:visited {
+    color: rgb(28, 28, 173);
 }
 
 #chatbox:hover #chatbox-text {
@@ -485,7 +540,7 @@ html {
 }
 
 /* mobile */
-@media (max-width: 740px) {
+@media (max-width: 739px) {
     .row {
         margin-left: 4px;
         margin-right: 4px;
@@ -566,6 +621,10 @@ html {
 
     .download {
         margin-top: 60px;
+    }
+
+    #chatbox {
+        font-size: 50px;
     }
 }
 

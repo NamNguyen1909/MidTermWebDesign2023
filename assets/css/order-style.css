@@ -9,7 +9,7 @@
     --font-size-large: 28px;
     --font-size-medium: 16px;
     --font-size-small: 8px;
-  }
+}
 
 .checkedButton {
     color: var(--mainColor);
@@ -39,29 +39,30 @@
   }
 
 body {
+    font-size: 20px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-image: url("../img/plane1.jpg") ;
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
+    background-image: url("../img/plane1.jpg") !important;
+    background-size: cover !important;
+    background-position: bottom !important;
+    background-repeat: no-repeat !important;
     color: #fff;
-    position: relative;
-    height: 100vh;
+
+    height: 100vh !important;
+    width: 100vw !important;
+    max-width: 100%; 
+    overflow: hidden; 
+}
+
+#container1,#container2{
     width: 100vw;
-    overflow: hidden;
+    height: 100vh;
+    transition: all 0.3s;
 }
 
-#container1,#container2 {
-    position: absolute;
-}
-
-#container1 {
-    left: 0;
-}
 #container2 {
-    left: 100%;
-    transform: scale(0.85);
-}
+    
+    transform: translate(100%,-100%);
+  }
 
 h1 {
     line-height: 20vh;
@@ -71,6 +72,13 @@ h1 {
     margin-right: 10vw;
     font-weight: 450;
     font-size: 36px;
+    text-shadow: 8px 8px 4px rgba(0,0,0,0.6);
+    transition: all 0.3s;
+}
+
+h1:hover {
+    text-shadow: -2px 2px 1px rgba(0,0,0,0.6);
+
 }
 
 .box1, .box2 {
@@ -81,6 +89,10 @@ h1 {
     margin: 0 10vw 10vh 10vw;
     padding: 24px;
     position: relative;
+}
+
+input,select {
+    font-size: 18px;
 }
 
 .labelBox {
@@ -115,14 +127,12 @@ h1 {
 }
 
 .box1 #table1 select {
-    height: 32px;
+    height: 42px;
     width: 85%;
 }
 
 .box1 [id^="ticket"] {
     margin-right: var(--font-size-large);
-    margin-bottom: 1rem;
-    height: auto;
 }
 
 .box1 #table1 .item-title {
@@ -166,7 +176,7 @@ h1 {
 }
 
 .box1 #table2 .bodyTable .typeTicket {
-    height: 36px;
+    height: 46px;
 }
 
 .box1 #table2 .bodyTable .td {
@@ -255,8 +265,6 @@ h1 {
 }
 .box2 [id^="info"] {
     margin-right: var(--font-size-large);
-    margin-bottom: 1rem;
-    height: auto;
 }
 
 .box2 [id^="info"] input,
@@ -267,7 +275,7 @@ h1 {
 }
 
 .box2 [id^="info"] select {
-    height: 32px;
+    height: 40px;
 }
 
 .box2 [id^="info"] label {
@@ -578,6 +586,9 @@ h1 {
         border: none;
     }
       
+    .checkbox-container {
+        font-size: 12px;
+    }
 
     .box2 [id^="info"] {
         margin-right: var(--font-size-small);

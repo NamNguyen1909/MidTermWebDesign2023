@@ -71,7 +71,7 @@ html {
     top: 0;
     right: 0;
     left: 0;
-    z-index: 1;
+    z-index: 999;
     white-space: nowrap; /*ngăn chữ bị xuống dòng khi phóng to*/
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
 
@@ -100,12 +100,9 @@ html {
 
 .header-number a {
     padding: 15px 15px 13px 15px;
+    margin-left: 2px;
     background-color: red;
     border-radius: 60%;
-}
-
-.sub-aivivu p {
-    margin: 0;
 }
 
 .aivivu {
@@ -136,6 +133,14 @@ html {
     width: 100%;
 }
 
+.app img:hover {
+    transform: scale(1.1); 
+}
+
+.app .Qr-code:hover {
+    transform: none;
+}
+
 .Qr-code {
     margin-right: 30px;
 }
@@ -149,6 +154,16 @@ html {
     font-size: medium;
     margin: 0;
     padding: 10px 0;
+}
+
+.email {
+    color: #101aef;
+    text-decoration: none;
+}
+
+.email:hover {
+    color: rgb(16, 16, 126);
+    text-decoration: underline;
 }
 
 #footer .socials-list {
@@ -259,7 +274,8 @@ html {
     font-size: 30px;
     bottom: 2%;
     right: 2%;
-    z-index: 99;
+    z-index: 3;
+    cursor: pointer;
 }
 
 #chatbox {
@@ -268,14 +284,15 @@ html {
     font-size: 60px;
     bottom: 10%;
     right: 1%;
-    z-index: 99;
+    z-index: 3;
     display: flex;
     align-items: center;
 }
 
 #chatbox-text {
     display: none;
-    color: yellow;
+    color: orange;
+    font-weight: bold;
     margin-right: 10px;
     font-size: 30px;
     animation: jump 1s infinite;
@@ -283,6 +300,10 @@ html {
 
 .fa-brands.fa-facebook-messenger:hover {
     opacity: 0.9;
+}
+
+.chatbox-a:visited {
+    color: rgb(28, 28, 173);
 }
 
 #chatbox:hover #chatbox-text {
@@ -307,7 +328,7 @@ html {
 }
 
 /* mobile */
-@media (max-width: 740px) {
+@media (max-width: 739px) {
     .row {
         margin-left: 4px;
         margin-right: 4px;
@@ -349,8 +370,8 @@ html {
         margin-top: 60px;
     }
 
-    h3 {
-        display: inline-block;
+    #chatbox {
+        font-size: 50px;
     }
 }
 
@@ -404,10 +425,6 @@ html {
 
     .download {
         margin-top: 60px;
-    }
-
-    h3 {
-        display: inline-block;
     }
 }
 

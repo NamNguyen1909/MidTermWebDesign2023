@@ -43,6 +43,37 @@ function changeBackgroundImageLeft(obj) {
 // Đặt thời gian để thay đổi hình ảnh sau mỗi 2 giây (1000ms = 1s)
 setInterval(changeBackgroundImageRight, 2000);
 
+// check thời gian đi thời gian về slider search 
+    var ngayDiInput = $("#time1");
+    var ngayVeInput = $("#time2");
+
+    ngayDiInput.change(function() {
+        var ngayDi = new Date($(this).val());
+        var ngayVe = new Date(ngayVeInput.val());
+        var today = new Date();
+
+        if (ngayDi < today) {
+            alert("Ngày đi không thể thấp hơn ngày hôm nay!");
+            $(this).val("");
+        } else if (ngayVe < ngayDi) {
+            alert("Ngày về không thể thấp hơn ngày đi!");
+            ngayVeInput.val("");
+        }
+    });
+
+    ngayVeInput.change(function() {
+        var ngayVe = new Date($(this).val());
+        var ngayDi = new Date(ngayDiInput.val());
+        var today = new Date();
+        if (ngayVe < today) {
+            alert("Ngày về không thể thấp hơn ngày hôm nay!");
+            $(this).val("");
+        }
+        if (ngayVe < ngayDi) {
+            alert("Ngày về không thể thấp hơn ngày đi!");
+            $(this).val("");
+        }
+    });
 // Check search info begin
 function validate(ele) {
     if (ele.value === '') {
@@ -96,6 +127,44 @@ $(document).ready(function() {
     var currentPath = window.location.pathname.split("/").pop().split(".")[0];
     // Thêm class "active" vào thẻ <a> tương ứng với trang hiện tại
     $('.nav a[href="' + currentPath + '.html"]').addClass('active');
+
+    //Gợi ý danh sách slider box tìm kiếm
+    let suggestList = ['Hồ Chí Minh', 'Hà Nội', 'Đà nẵng', 'Huế', 'Nha Trang', 'Đà Lạt', 'Vũng Tàu', 'Sapa',
+    'Phú Quý', 'Quy Nhơn', 'Đài Loan', 'Thái Lan', 'Hoa Kì', 'Đức', 'Úc', 'Malaysia', 'Campuchia', 'Pháp', 'Phan Thiết',
+    'Canada', "Cà Mau", 'Nhật Bản', 'Trung Quốc', "Nga", "Anh", 'TP Vinh'
+    ];
+
+    function suggestions(inputId, suggestId) {
+        $(inputId).on("keyup", function() {
+            let t = $(this).val();
+            let h = "";
+            for (let c of suggestList)
+                if (c.indexOf(t) >= 0)
+                    h+=`<li>${c}</li>`;
+            $(suggestId).html(h);
+        });
+    
+        $(suggestId).on("click", "li", function() {
+            let t = $(this).text();
+            $(inputId).val(t);
+            $(suggestId).html("");
+        });
+    }
+
+    suggestions("#place1", "#suggest1");
+    suggestions("#place2", "#suggest2");
+
+    // Sự kiện click lắng nghe trên cả tài liệu để đóng danh sách gợi ý khi người dùng nhấn ra ngoài
+    $("html").on("click", function() {
+        $("#suggest1").html("");
+        $("#suggest2").html("");
+    });
+    
+    // sự kiện scroll ko thể dùng html, phải dùng window
+    $(window).on("scroll", function() {
+        $("#suggest1").html("");
+        $("#suggest2").html("");
+    });
 });
 
 
